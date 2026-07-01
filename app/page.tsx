@@ -24,10 +24,10 @@ import {
 
 export default function HomePage() {
   return (
-    <div className="fixed inset-0 overflow-y-auto overflow-x-hidden scrollbar-none bg-[#030303] text-zinc-100 flex flex-col font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#030303] text-zinc-100 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
       
       {/* Space & Geospatial Themed Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 opacity-45">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 opacity-45">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-18 animate-drift-slow"
           style={{
@@ -78,41 +78,43 @@ export default function HomePage() {
       </div>
 
       {/* Decorative Background Glows */}
-      <div className="absolute top-0 left-1/4 h-125 w-125 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px] pointer-events-none animate-drift-slow" />
-      <div className="absolute top-[60vh] right-1/4 h-150 w-150 rounded-full bg-indigo-500/5 blur-[140px] pointer-events-none animate-drift-slow" />
-      <div className="absolute bottom-0 left-1/3 h-125 w-125 translate-y-1/3 rounded-full bg-purple-500/5 blur-[120px] pointer-events-none animate-drift-slow" />
+      <div className="fixed top-0 left-1/4 h-125 w-125 -translate-y-1/2 rounded-full bg-blue-500/10 blur-[120px] pointer-events-none animate-drift-slow" />
+      <div className="fixed top-[60vh] right-1/4 h-150 w-150 rounded-full bg-indigo-500/5 blur-[140px] pointer-events-none animate-drift-slow" />
+      <div className="fixed bottom-0 left-1/3 h-125 w-125 translate-y-1/3 rounded-full bg-purple-500/5 blur-[120px] pointer-events-none animate-drift-slow" />
 
-      {/* Header */}
-      <header className="border-b border-zinc-800/60 bg-[#09090b]/70 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 rounded-lg bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center font-bold text-white text-base shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:scale-105 transition-transform duration-300">
-              S
-            </div>
-            <div>
-              <h1 className="text-sm font-bold tracking-wider text-white uppercase group-hover:text-blue-400 transition-colors">SATELLITE SEARCH</h1>
-              <p className="text-[10px] text-zinc-500 font-medium tracking-widest uppercase">Cross-Modal Retrieval</p>
-            </div>
-          </Link>
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#how" className="text-sm text-zinc-400 hover:text-white hover:-translate-y-px transition-all">How it works</a>
-            <a href="#modalities" className="text-sm text-zinc-400 hover:text-white hover:-translate-y-px transition-all">Modalities</a>
-            <a href="#features" className="text-sm text-zinc-400 hover:text-white hover:-translate-y-px transition-all">Capabilities</a>
-            <a href="#architecture" className="text-sm text-zinc-400 hover:text-white hover:-translate-y-px transition-all">Architecture</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link 
-              href="/dashboard" 
-              className="px-5 py-2 rounded-lg bg-linear-to-r from-blue-600 to-indigo-600 text-white font-medium text-sm hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:brightness-110 transition-all duration-300"
-            >
-              Launch Dashboard
+      <div className="relative z-10 flex min-h-screen flex-col">
+        {/* Header */}
+        <header className="sticky top-0 z-50 border-b border-zinc-800/60 bg-[#09090b]/70 backdrop-blur-md transition-all duration-300">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-9 h-9 rounded-lg bg-linear-to-br from-blue-500 to-indigo-600 flex items-center justify-center font-bold text-white text-base shadow-[0_0_15px_rgba(59,130,246,0.3)] group-hover:scale-105 transition-transform duration-300">
+                S
+              </div>
+              <div>
+                <h1 className="text-sm font-bold tracking-wider text-white uppercase group-hover:text-blue-400 transition-colors">SATELLITE SEARCH</h1>
+                <p className="text-[10px] text-zinc-500 font-medium tracking-widest uppercase">Cross-Modal Retrieval</p>
+              </div>
             </Link>
+            <nav className="hidden md:flex items-center gap-8">
+              <a href="#how" className="text-sm text-zinc-400 hover:text-white hover:-translate-y-px transition-all">How it works</a>
+              <a href="#modalities" className="text-sm text-zinc-400 hover:text-white hover:-translate-y-px transition-all">Modalities</a>
+              <a href="#features" className="text-sm text-zinc-400 hover:text-white hover:-translate-y-px transition-all">Capabilities</a>
+              <a href="#architecture" className="text-sm text-zinc-400 hover:text-white hover:-translate-y-px transition-all">Architecture</a>
+            </nav>
+            <div className="flex items-center gap-4">
+              <Link 
+                href="/dashboard" 
+                className="px-5 py-2 rounded-lg bg-linear-to-r from-blue-600 to-indigo-600 text-white font-medium text-sm hover:shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:brightness-110 transition-all duration-300"
+              >
+                Launch Dashboard
+              </Link>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
+        <main className="flex-1">
       {/* Hero Section */}
-      <section className="relative flex-1 max-w-7xl mx-auto px-6 py-20 lg:py-28 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <section className="relative max-w-7xl mx-auto px-6 py-20 lg:py-28 min-h-[calc(100vh-5rem)] grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Left: Content */}
         <div className="lg:col-span-6 flex flex-col justify-center space-y-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/60 w-fit backdrop-blur-sm">
@@ -174,7 +176,7 @@ export default function HomePage() {
       </section>
 
       {/* How it works */}
-      <section id="how" className="relative overflow-hidden border-t border-zinc-900 bg-linear-to-b from-black via-[#050505] to-black py-24">
+      <section id="how" className="relative isolate overflow-hidden border-t border-zinc-900 bg-linear-to-b from-black via-[#050505] to-black py-24">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute left-1/2 top-0 h-px w-6xl -translate-x-1/2 bg-linear-to-r from-transparent via-blue-500/25 to-transparent" />
           <div className="absolute -left-24 top-12 h-72 w-72 rounded-full bg-blue-500/10 blur-[120px]" />
@@ -241,7 +243,7 @@ export default function HomePage() {
       </section>
 
       {/* Modalities */}
-      <section id="modalities" className="py-24 border-t border-zinc-900 relative">
+      <section id="modalities" className="relative isolate border-t border-zinc-900 py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16 space-y-3">
             <h3 className="text-xs uppercase font-semibold tracking-wider text-indigo-500">Cross-Modal Sensors</h3>
@@ -287,7 +289,7 @@ export default function HomePage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-24 border-t border-zinc-900 bg-linear-to-b from-[#050505] to-black">
+      <section id="features" className="relative isolate border-t border-zinc-900 bg-linear-to-b from-[#050505] to-black py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-2xl mb-16 space-y-3">
             <h3 className="text-xs uppercase font-semibold tracking-wider text-purple-500">Core Engine</h3>
@@ -325,7 +327,7 @@ export default function HomePage() {
       </section>
 
       {/* Architecture */}
-      <section id="architecture" className="relative overflow-hidden border-t border-zinc-900 py-24">
+      <section id="architecture" className="relative isolate overflow-hidden border-t border-zinc-900 py-24">
         <div className="absolute inset-0 pointer-events-none bg-linear-to-b from-black via-[#040404] to-black" />
         <div className="absolute left-0 top-1/2 h-112 w-md -translate-y-1/2 rounded-full bg-blue-500/10 blur-[150px]" />
         <div className="absolute right-0 top-16 h-96 w-96 rounded-full bg-purple-500/10 blur-[150px]" />
@@ -386,7 +388,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 border-t border-zinc-900 bg-linear-to-t from-black to-[#050505] relative overflow-hidden">
+      <section className="relative isolate overflow-hidden border-t border-zinc-900 bg-linear-to-t from-black to-[#050505] py-24">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-100 w-100 rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none" />
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8 relative z-10">
           <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
@@ -413,7 +415,9 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-900 bg-[#030303] mt-auto">
+        </main>
+
+      <footer className="border-t border-zinc-900 bg-[#030303]">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 text-sm">
             <div>
@@ -451,6 +455,7 @@ export default function HomePage() {
           </div>
         </div>
       </footer>
+      </div>
     </div>
   );
 }
